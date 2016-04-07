@@ -1,6 +1,7 @@
 package com.example.ryan.d3translationapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.design.widget.FloatingActionButton;
@@ -80,22 +81,29 @@ public class NavigationDrawerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+	    Intent intent = null;
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_articles) {
+	        intent = new Intent(getBaseContext(), ArticleListViewerActivity.class);
+        } else if (id == R.id.nav_quiz) {
+	        intent = new Intent(getBaseContext(), QuizActivity.class);
+        } else if (id == R.id.nav_dictionary) {
+	        intent = new Intent(getBaseContext(), DictionaryActivity.class);
+        } else if (id == R.id.nav_settings) {
+	        intent = new Intent(getBaseContext(), SettingsActivity.class);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+	    // checks to see if intent is null and to see if the activity we're going into is this one
+	    if (intent != null && !this.getClass().getName().equals(intent.getComponent().getClassName())) {
+		    // loads paused instance of an activity instead of creating a new one
+		    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+		    startActivity(intent);
+	    }
+
         return true;
     }
 
