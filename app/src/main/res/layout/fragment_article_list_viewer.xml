@@ -9,5 +9,12 @@
                 tools:context="com.example.ryan.d3translationapp.ArticleListViewerActivityFragment"
                 tools:showIn="@layout/activity_article_list_viewer">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/article_list_view"
+        >
+    </ListView>
+
 
 </RelativeLayout>
