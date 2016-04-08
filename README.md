@@ -32,3 +32,32 @@ and delete the branch. If everything works but it can't be merged,
 go to VCS -> git -> merge changes and merge with origin/master. 
 _Carefully_ merge your changes, and then add a new commit once it's
 done and push to your branch. Then merge with master on GitHub.
+
+## The Navigation Drawer
+If you create a new activity (properly generated from Android Studio of
+course) your app must extend the NavigationDrawerActivity if you 
+want your activity have the navigation drawer. It should look like this:
+
+`public class NewActivity extends NavigationDrawerActivity {`
+
+By default Android activities call `setContentView()` but the
+navigation drawer has an activity to deal with this called `addLayout()`.
+Pass the same argument you'd pass into `setContentView()` into `addLayout()`.
+
+## The UserPreferences class
+`UserPreferences` is a singleton and houses the user's preferences.
+The preferences it currently stores are the user's name and the
+target language. Get these with the getter methods (to get the target
+language as a string, just call it with `toString()`). It's a static
+class so it doesn't need to be instanciated.
+
+This class also has an enum called `Language` that contains all the
+currently supported languages. You can use it like a normal enum. You
+should never need to interact with this except when implementing the
+user picking their language choice though.
+
+## The Translator class
+The `Translator` class is also a singleton and needs to be instanciated.
+To call this, call `Translator.getInstance()` just to make sure that 
+the target language is set. If it happens early in the app you probably
+don't need to do it though.
