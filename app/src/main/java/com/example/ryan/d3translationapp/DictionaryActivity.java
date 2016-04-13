@@ -24,6 +24,8 @@ public class DictionaryActivity extends NavigationDrawerActivity {
 						.setAction("Action", null).show();
 			}
 		});
+
+
 	}
 
 }
