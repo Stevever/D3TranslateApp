@@ -11,4 +11,5 @@
     <string name="title_activity_quiz">QuizActivity</string>
     <string name="title_activity_article">ArticleActivity</string>
     <string name="title_activity_dictionary">DictionaryActivity</string>
+    <string name="title_activity_dictionary_lookup">DictionaryLookupActivity</string>
 </resources>
