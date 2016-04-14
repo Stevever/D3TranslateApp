@@ -6,43 +6,64 @@ package com.example.ryan.d3translationapp;
  * This is an enumeration that maps the 3 letter language codes to readable language names.
  * Example: "English" = "eng", "Spanish" = "spa", etc
  *
+ *
+ * Update: It was an enumeration, but not anymore...
  */
 public class LanguageCodeEnum {
 
-    public enum Language {
-        eng, spa, deu, fra, cmn, jpn, rus, ita, pol
+    public LanguageCodeEnum()
+    {
+
     }
 
-    Language lang;
-
-    public LanguageCodeEnum(Language inlang){
-        this.lang = inlang;
-    }
-
-    public String getFullLang(){
+    public static String getFullLang(String lang){
         switch (lang) {
-            case eng:
+            case "eng":
                 return "English";
-            case spa:
+            case "spa":
                 return "Spanish";
-            case deu:
+            case "deu":
                 return "German";
-            case fra:
+            case "fra":
                 return "French";
-            case cmn:
+            case "cmn":
                 return "Chinese (Mandarin)";
-            case jpn:
+            case "jpn":
                 return "Japanese";
-            case rus:
+            case "rus":
                 return "Russian";
-            case ita:
+            case "ita":
                 return "Italian";
-            case pol:
+            case "pol":
                 return "Polish";
             default:
                 return "Unknown Language";
-
         }
 
+    }
+
+    public static String getISO(String lang) {
+        switch (lang) {
+            case "English":
+                return "eng";
+            case "Spanish":
+                return "spa";
+            case "German":
+                return "deu";
+            case "French":
+                return "fra";
+            case "Chinese (Mandarin)":
+                return "cmn";
+            case "Japanese":
+                return "jpn";
+            case "Russian":
+                return "rus";
+            case "Italian":
+                return "ita";
+            case "Polish":
+                return "pol";
+            default:
+                return "Unknown Language";
+        }
     }
 }
