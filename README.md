@@ -61,3 +61,20 @@ The `Translator` class is also a singleton and needs to be instanciated.
 To call this, call `Translator.getInstance()` just to make sure that 
 the target language is set. If it happens early in the app you probably
 don't need to do it though.
+
+## Dictionary Lookups and JSONResponseParser class
+The dictionary lookup is done by using the Glosbe translation API 
+(https://en.glosbe.com/a-api for info). The app sends to Glosbe 3 things,
+all provided by the user: current language, destination language and the
+phrase to lookup. The response is a `JSONObject` that contains the raw
+translation data from Glosbe. The `DictionaryLookupActivity` is passed a
+string representation of this . To actually get the translation data
+from the String:
+
+1. Create a `JSONObject` with the String representation
+2. Create a `JSONResponseParser` object with this `JSONObject`
+3. Get the necessary data from the JSONResponseParser by calling its public
+methods (`getToLang()`, `getFromLang()`, `getPhrase()`, etc)
+
+In the future, I will add a `verify()` method that makes sure a valid 
+translation was found. This should help with error handling.
